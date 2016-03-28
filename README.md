@@ -1,4 +1,4 @@
-# Dynamo Web Page
+# Dynamo Dresden User Interfaces
 
 ## Intent of this repository
 The first intend of this repository is, that it is playground for me as a ui creator to try out things.
