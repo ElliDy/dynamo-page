@@ -1,16 +1,14 @@
-## angular2-seed
+# Dynamo Web Page
 
-A simple starter project demonstrating the basic concepts of Angular2.
+## Intent of this repository
+The first intend of this repository is, that it is playground for me as a ui creator to try out things.
+As I´m a big Dynamo Dresden Fan, I like try to connect the content of my try outs always to content, which could might be helpful for fans of this football club.
 
-Work in progress! This branch uses Webpack for Development. There is also a SystemJS branch available.
+If you like to join me, please open a branch and realize your ideas.
 
-### Usage
-- Clone or fork this repository
-- Make sure you have [node.js](https://nodejs.org/) installed
-- run `npm install` to install dependencies
-- run `npm start` to fire up dev server
-- open browser to `http://localhost:8080`
+## First Try out
+Goal: Learn Angular 2 
+First Step: Using the (Angular-2-Seed)[https://github.com/angular/angular2-seed] and play around with it. 
 
-### Known Issues
-- angular2-polyfills.js is currently being handled manually. 
-- bundle size is large, due to inline sourcemaps from angular2 npm source.
+## Ideas
+* list all possible usecases for fans
