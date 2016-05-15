@@ -36,3 +36,12 @@ Steps:
 ## First Try out
 Goal: Learn Angular 2 
 First Step: Using the [Angular-2-Seed](https://github.com/angular/angular2-seed) and play around with it. 
+
+## Issues
+
+node_modules/angular2/src/facade/promise.d.ts -> 
+https://github.com/angular/angular/issues/6468
+
+Temporary solution add this on the file as second line: 
+
+declare var Promise: PromiseConstructor; 
