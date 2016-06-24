@@ -18,17 +18,20 @@ header h1{
 }
 
 .dynamo-page-content{
-    margin-top: 40px;
+    margin-top: 80px;
     background: white;
     height: 100%;
     position: relative;
     border-radius: 20px;
     box-shadow: 0px 0px 30px 10px white;
+    padding: 10px 0px;
 }
 
 .flex-container{
     display: flex;
     flex-flow: row nowrap;
+    position: absolute;
+    width: 1300px;
 }
 ul{
     margin: 0;
