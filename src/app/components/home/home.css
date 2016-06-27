@@ -18,6 +18,10 @@
 	text-align: center;
 }
 
+.dynamic-usecase__link-container{
+    margin-top: 15px;
+}
+
 .dynamo-main-container__togglecontainer p{
 	margin: 5px;
 }
