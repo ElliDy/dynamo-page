@@ -1,7 +1,6 @@
 ﻿<div class="dynamo-main-container">
     <section>
         <h3>Ein herzliches Willkommen allen Fans der SGD</h3>
-        <p></p>
         <p>
             Ihr denkt jetzt wahrscheinlich... oh ne, nicht noch eine Fanseite, noch ein Fanprojekt, noch ein Fanclub... haben wir nicht schon genug davon. Schließ dich doch einfach einem an.
         </p>
@@ -11,83 +10,106 @@
         <p>
             Na ja fast...
         </p>
-        <p>
-            Denn das hier ist der Anfang von keinem Fanclub, keiner klassischen Fanseite, sondern von einem etwas anderem... nicht minder tollem Projekt. Und für dieses Projekt brauch ich euch und zwar alle. Aber der Reihe nach...
-        </p>
-        <p>
-            Gestern im K-Block ist mir etwas zu Ohren gekommen... lasst doch mal diesen Like-Strom bei Facebook sein... um es im ZO-Style zu sagen: Das ja wohl mal der Ober-Flop. Dem stimm ich voll und ganz zu, obwohl ich ehrlich gesagt auch oft nicht widerstehen kann. Es war/ist ja nun mal auch eine phänomenale Saison, die hinter uns liegt und wenn man nicht im K-Block schreit, seine Fahne schwängt oder mit breiter Brust auf Arbeit mit T-Shirt, Trikot oder/und Schal erscheint... na dann klickt man schon schnell mal den Herz-Button oder Daumen ;) Aber moment mal... wäre es nicht viel cooler, wenn wir unser eigenes Netzwerk hätten... was wäre es denn, wenn man ein Dynamisch-Button, Wessi-Button oder Schweine-Button hätte... oder vielleicht auch einen Aue-Schwein, Maggi-Schwein... ja, naja, der Liga-Zoo wird sich kommende Saison ja eher etwas Richtung Westen verschieben, aber wäre doch irgendwie net schlecht oder?
-        </p>
-        <p>
-            Schon länger träumt mein Entwicklerherz davon... eine eigene Dynamo-App... irgendwas, was alle im K nutzen können und was unsere Gemeinschaft stärkt, aber gleichzeitig einfach nur Spaß macht. Es muss etwas sein, was nicht nur für Fans ist, sondern von den Fans kommt. Etwas, was wir alle zusammen auf die Beine stellen... wo es kein Fanclub X oder Y gibt, sondern nur ein der K und meinetwegen auch der K und das Grüppchen vom Familien-Block, der Haupttribühne, ... und wenn sie lieb sind und gut spielen, dürfen natürlich auch die Spieler mit dabei sein. ;)
-        </p>
-        <p>
-            Das passiert also, wenn ich meine erste Dauerkarten-Saison fast hinter mir habe. Ich stehe mitten in der Nacht auf, male ein Plakat und recke es dann beim Spiel stolz in die Höhe... in der Hoffnung man kan irgendwas erkennen, was ich da an Buchstabensalat fabriziert habe... und mal ganz nebenbei habe ich megaviele Ideen im Kopf, was ihr alle so brauchen könntet, nach dem Spiel in euren Fingern... eine Hand muss auf jeden Fall frei sein für´s Bier. So viel ist klar :)
-        </p>
-        <p>
-            In mir drin macht sich aber noch eine weitere Fragestellung breit. Die ist etwas persönlicher, aber wenn ich jetzt schon mal so offen zu euch spreche. Dann gehört das dazu und meine Frage, die sich gestern während des Spiels in meine Gedanken schlich ist, die Folgende. Gehöre ich denn nu eigentlich dazu? Ich mein, ich bin in keinem Fanclub, aber sammle und klebe fleißig Sticker - auch die ein oder Auswärtsfahrt nahm ich mit - Ostderbies hatten es mir angetan, aber auch die Würzburger Kickers. Ich hatte unglücklicherweise nicht wenig Pfefferspray im Gesicht und ich war mega wütend und hätte nicht nur ein Mal diese Saison einen dieser uniformierten Leute, die meinen uns wie Vieh behandeln zu müssen, ins Jenseits befördern können. Aber macht mich das zu einem richtigen Fan? Was ist ein richtige Fan überhaupt? Und vor allem, was braucht man dazu ein Fan der SG Dynamo Dresden zu sein? 
-        </p>
-        <div>
-            <span>Werte eines SGD-Fans:</span>
-            <ul>
-                <li>Gemeinschaft</li>
-                <li>Treue</li>
-                <li>Leidenschaft (...die Leiden schafft)</li>
-                <li>Disziplin</li>
-                <li>Bierdurst auch früh um 10</li>
-                <li>...</li>
-            </ul>
+        <div class="dynamo-main-container__togglecontainer" [ngClass]="{'dynamo-main-container__togglecontainer-shown': fullTextShown}">
+            <p *ngIf="!fullTextShown" >
+                <button (click)="toggleFullTextContainer()">
+                    Mehr lesen
+                </button>
+            </p>
+            <p *ngIf="fullTextShown">
+                <button (click)="toggleFullTextContainer()">
+                    Text verbergen
+                </button>
+            </p>
+
         </div>
-        <p>
-            Ja, das sind alles so Werte, die einen Dynamo-Fan durchaus sich in so einer langen, kräfteraubenden, aber phämenomalen Saison aneignet... manchmal nicht immer freiwillig, aber hey... einer für alle, alle für die SGD... es heißt ja nicht umsonst Sport<span>gemeinschaft</span>, und Sportsgeist in der Gemeinschaft heißt halt auch mal was mitmachen, wo man sich überwinden muss, ne. Und ja, die Herren sollen sich jetzt angesprochen fühlen - mit der Zeit lernt man als weiblicher Bestandteil des Mobs, dass es echt komisch wäre, im Auto ohne Bierdunst in der Nase zu sitzen auf dem Weg nach nun wohl Hamburg, Düsseldorf oder Frankfurt... denn das wäre nicht das Gleiche wie ein Zugabteil mit euch zu teilen für mehrere Stunden und sich so einzustimmen auf das, was kommt... nämlich schwitzen, bibbern, schreien, jubeln, hassen, lieben, zweifeln, lachen, abranzen, rumnörgeln, ... ich denke, ihr findet alle eure eigenen Verben dafür, oder?
-        </p>
-        <p>
-            Fast schon etwas wehleidig schaue ich nun auf genau diese verdammt geilen Momente zurück und frage mich, wie können wir die nächste Saison das noch toppen? Und das ohne alle unsere Handys in Dauerbenutzung zu haben - das fiel mir gestern nämlich auch wieder auf. Und genau da kommt ihr ins Spiel... was wünscht ihr euch denn... 
-        </p>
+        <div *ngIf="fullTextShown" 
+            class="dynamo-main-container__fulltextcontainer">
+            <p>
+                Denn das hier ist der Anfang von keinem Fanclub, keiner klassischen Fanseite, sondern von einem etwas anderem... nicht minder tollem Projekt. Und für dieses Projekt brauch ich euch und zwar alle. Aber der Reihe nach...
+            </p>
+            <p>
+                Gestern im K-Block ist mir etwas zu Ohren gekommen... lasst doch mal diesen Like-Strom bei Facebook sein... um es im ZO-Style zu sagen: Das ja wohl mal der Ober-Flop. Dem stimm ich voll und ganz zu, obwohl ich ehrlich gesagt auch oft nicht widerstehen kann. Es war/ist ja nun mal auch eine phänomenale Saison, die hinter uns liegt und wenn man nicht im K-Block schreit, seine Fahne schwängt oder mit breiter Brust auf Arbeit mit T-Shirt, Trikot oder/und Schal erscheint... na dann klickt man schon schnell mal den Herz-Button oder Daumen ;) Aber moment mal... wäre es nicht viel cooler, wenn wir unser eigenes Netzwerk hätten... was wäre es denn, wenn man ein Dynamisch-Button, Wessi-Button oder Schweine-Button hätte... oder vielleicht auch einen Aue-Schwein, Maggi-Schwein... ja, naja, der Liga-Zoo wird sich kommende Saison ja eher etwas Richtung Westen verschieben, aber wäre doch irgendwie net schlecht oder?
+            </p>
+            <p>
+                Schon länger träumt mein Entwicklerherz davon... eine eigene Dynamo-App... irgendwas, was alle im K nutzen können und was unsere Gemeinschaft stärkt, aber gleichzeitig einfach nur Spaß macht. Es muss etwas sein, was nicht nur für Fans ist, sondern von den Fans kommt. Etwas, was wir alle zusammen auf die Beine stellen... wo es kein Fanclub X oder Y gibt, sondern nur ein der K und meinetwegen auch der K und das Grüppchen vom Familien-Block, der Haupttribühne, ... und wenn sie lieb sind und gut spielen, dürfen natürlich auch die Spieler mit dabei sein. ;)
+            </p>
+            <p>
+                Das passiert also, wenn ich meine erste Dauerkarten-Saison fast hinter mir habe. Ich stehe mitten in der Nacht auf, male ein Plakat und recke es dann beim Spiel stolz in die Höhe... in der Hoffnung man kan irgendwas erkennen, was ich da an Buchstabensalat fabriziert habe... und mal ganz nebenbei habe ich megaviele Ideen im Kopf, was ihr alle so brauchen könntet, nach dem Spiel in euren Fingern... eine Hand muss auf jeden Fall frei sein für´s Bier. So viel ist klar :)
+            </p>
+            <p>
+                In mir drin macht sich aber noch eine weitere Fragestellung breit. Die ist etwas persönlicher, aber wenn ich jetzt schon mal so offen zu euch spreche. Dann gehört das dazu und meine Frage, die sich gestern während des Spiels in meine Gedanken schlich ist, die Folgende. Gehöre ich denn nu eigentlich dazu? Ich mein, ich bin in keinem Fanclub, aber sammle und klebe fleißig Sticker - auch die ein oder Auswärtsfahrt nahm ich mit - Ostderbies hatten es mir angetan, aber auch die Würzburger Kickers. Ich hatte unglücklicherweise nicht wenig Pfefferspray im Gesicht und ich war mega wütend und hätte nicht nur ein Mal diese Saison einen dieser uniformierten Leute, die meinen uns wie Vieh behandeln zu müssen, ins Jenseits befördern können. Aber macht mich das zu einem richtigen Fan? Was ist ein richtige Fan überhaupt? Und vor allem, was braucht man dazu ein Fan der SG Dynamo Dresden zu sein? 
+            </p>
+            <div>
+                <span>Werte eines SGD-Fans:</span>
+                <ul>
+                    <li>Gemeinschaft</li>
+                    <li>Treue</li>
+                    <li>Leidenschaft (...die Leiden schafft)</li>
+                    <li>Disziplin</li>
+                    <li>Bierdurst auch früh um 10</li>
+                    <li>...</li>
+                </ul>
+            </div>
+            <p>
+                Ja, das sind alles so Werte, die einen Dynamo-Fan durchaus sich in so einer langen, kräfteraubenden, aber phämenomalen Saison aneignet... manchmal nicht immer freiwillig, aber hey... einer für alle, alle für die SGD... es heißt ja nicht umsonst Sport<span>gemeinschaft</span>, und Sportsgeist in der Gemeinschaft heißt halt auch mal was mitmachen, wo man sich überwinden muss, ne. Und ja, die Herren sollen sich jetzt angesprochen fühlen - mit der Zeit lernt man als weiblicher Bestandteil des Mobs, dass es echt komisch wäre, im Auto ohne Bierdunst in der Nase zu sitzen auf dem Weg nach nun wohl Hamburg, Düsseldorf oder Frankfurt... denn das wäre nicht das Gleiche wie ein Zugabteil mit euch zu teilen für mehrere Stunden und sich so einzustimmen auf das, was kommt... nämlich schwitzen, bibbern, schreien, jubeln, hassen, lieben, zweifeln, lachen, abranzen, rumnörgeln, ... ich denke, ihr findet alle eure eigenen Verben dafür, oder?
+            </p>
+            <p>
+                Fast schon etwas wehleidig schaue ich nun auf genau diese verdammt geilen Momente zurück und frage mich, wie können wir die nächste Saison das noch toppen? Und das ohne alle unsere Handys in Dauerbenutzung zu haben - das fiel mir gestern nämlich auch wieder auf. Und genau da kommt ihr ins Spiel... was wünscht ihr euch denn... 
+            </p>
+        </div>
     </section>
-    <section>
+    <section class="dynamic-app-ideas__container">
         <h3>Dynamische App-Ideenkiste</h3>
 
-        <p>Hier mal ein paar erste Ideen von mir, damit ihr versteht, was ich mein und was auf euch zukommt, wenn ihr das denn wollt, aber denkt dran... SportGEMEINSCHAFT, ne ;)</p>
-        
-        <div class="dynamic-usecase dynamic-usecase__as" >
-            <p class="dynamic-usecase dynamic-usecase__a dynamic-usecase dynamic-usecase__a__a">Ich möchte meine Fotos nach einem Spiel teilen.</p>
-            <p class="dynamic-usecase dynamic-usecase__d">Ich möchte ein einfaches Video oder eine Slide Show erstellen vom letzten Spiel/der letzten Saison oder einem super geilen Moment und es mit meinem Fanclub teilen</p>
-            <p class="dynamic-usecase dynamic-usecase__b">Das Foto ist geil... wer im Block mag das auch? Ich will ein Block-Rating :) </p>
-            <p class="dynamic-usecase dynamic-usecase__c">Vergleiche alle Videos der letzten drei Monate - bei welchen Spiel waren wir am lautesten?</p>
-            <p class="dynamic-usecase dynamic-usecase__a">Ich möchte in Erinnerungen schwelgen... gib mir alle Fotos mit Flaggen drauf von den letzten drei Monaten</p>
-            <p class="dynamic-usecase dynamic-usecase__e">Was war meine schönste Choreo diese Saison?</p>
-            <p class="dynamic-usecase dynamic-usecase__f">Was war eure schönste Choreo diese Saison?</p>
-            <p class="dynamic-usecase dynamic-usecase__g">Welches Auswärtspiel war am besten bewacht? ;)</p>
-            <p class="dynamic-usecase dynamic-usecase__h">Bei welchem Spiel gab´s denn am meisten Feuer im Kessel? </p>
-            <p class="dynamic-usecase dynamic-usecase__i">Stimmung gleich null - woran lag es?</p>
-        </div>
-
-        <a href="/dynamo-idea-box">Ihr habt auch Anwendungsfälle, die ihr euch wünscht, dann immmer her damit - Hier geht es zum dynamischen Formular!</a>
-
-    </section>
-          
-    <div class="fangesang fangesang-ganzejahr">
         <p>
-        Ja, wir sind da,
-        das ganze Jahr,
-        f&uuml;r die SGD,
-        schwarz und gelb OLEEE!
-        Schalalala!</p>
-    </div>
-    <div class="fangesang-1 fangesang-traum">
-    <p>
-        Ich hatte eine Traum und diese Traum war wunderbar.
-        Europacup, es war ein Ausw&auml;rtspiel, in Amsterdam.
-        Alle Dresden im Block, sie sangen nur ein Lied f&uuml;r dich.
-        Oh Elbflorenz, ihr k&auml;mpft f&uuml;r uns, wir f&uuml;r dich.
-    </p>
-    </div>
-    <div class="fangesang-1 fangesang-aufdynamo">
+            Falls ihr nicht den "Mehr Lesen"-Button angeklickt habt, dann sei euch kurz gesagt: Ich möchte eine App machen von Fans für Fans und dafür brauch ich eure Ideen.
         <p>
-            Auf Dynamo,
-            k&auml;mpft mit stolzem Blut,
-            holt den Sieg f&uuml;r uns,
-            vorw&auml;rts Dresdener Jungs.
+            Im Folgenden findet ihr ein paar erste Ideen von mir, damit ihr versteht, was ich meine und was auf euch zukommt, wenn ihr das denn wollt, aber denkt dran... 
+            wir sind eine SportGEMEINSCHAFT, ne ;)
         </p>
+        
+        <div class="dynamic-usecase__container dynamic-usecase__as" >
+            <div class="dynamic-usecase__item dynamic-usecase__2">Ich möchte meine Fotos nach einem Spiel teilen.</div>
+            <div class="dynamic-usecase__item dynamic-usecase__3">Ich möchte ein einfaches Video oder eine Slide Show erstellen vom letzten Spiel und es mit meinem Fanclub teilen</div>
+            <div class="dynamic-usecase__item dynamic-usecase__3">Das Foto ist geil... wer im Block mag das auch? Ich will ein Block-Rating :) </div>
+            <div class="dynamic-usecase__item dynamic-usecase__3">Vergleiche alle Videos der letzten drei Monate - bei welchen Spiel waren wir am lautesten?</div>            
+            <div class="dynamic-usecase__item dynamic-usecase__3">Ich möchte in Erinnerungen schwelgen... gib mir alle Fotos mit Flaggen drauf von den letzten drei Monaten</div>
+            <div class="dynamic-usecase__item dynamic-usecase__2">Was war meine schönste Choreo diese Saison?</div>
+            <div class="dynamic-usecase__item dynamic-usecase__2">Was war eure schönste Choreo diese Saison?</div>
+            <div class="dynamic-usecase__item dynamic-usecase__2">Welches Auswärtspiel war am besten bewacht? ;)</div>
+            <div class="dynamic-usecase__item dynamic-usecase__2">Bei welchem Spiel gab´s denn am meisten Feuer im Kessel? </div>
+            <div class="dynamic-usecase__item dynamic-usecase__2">Stimmung gleich null - woran lag es?</div>
+        </div>
+        <div class="dynamic-usecase__link-container">
+            <a href="/dynamo-idea-box">Ihr habt auch Anwendungsfälle, die ihr euch wünscht, dann immmer her damit - Hier geht es zum dynamischen Formular!</a>
+        </div>
+    </section>
+    <div class="fangesang-container">
+        <div class="fangesang fangesang-ganzejahr">
+            <p>
+            Ja, wir sind da,
+            das ganze Jahr,
+            f&uuml;r die SGD,
+            schwarz und gelb OLEEE!
+            Schalalala!</p>
+        </div>
+        
+        <div class="fangesang fangesang-aufdynamo">
+            <p>
+                Auf Dynamo,
+                k&auml;mpft mit stolzem Blut,
+                holt den Sieg f&uuml;r uns,
+                vorw&auml;rts Dresdener Jungs.
+            </p>
+        </div>
+        <div class="fangesang fangesang-traum">
+            <p>
+                Ich hatte eine Traum und diese Traum war wunderbar.
+                Europacup, es war ein Ausw&auml;rtspiel, in Amsterdam.
+                Alle Dresden im Block, sie sangen nur ein Lied f&uuml;r dich.
+                Oh Elbflorenz, ihr k&auml;mpft f&uuml;r uns, wir f&uuml;r dich.
+            </p>
+        </div>
     </div>
 </div>

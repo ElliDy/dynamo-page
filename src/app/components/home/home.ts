@@ -10,6 +10,15 @@ import {Component} from 'angular2/core';
 })
 export class Home {
 
-  constructor() {}
+  	public fullTextShown;
+
+  	constructor() {
+  		 this.fullTextShown = false;
+  	}
+
+
+	public toggleFullTextContainer = () => {  
+	  this.fullTextShown = !this.fullTextShown;
+	}
 
 }
