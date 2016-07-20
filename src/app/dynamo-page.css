@@ -50,6 +50,7 @@ ul{
     text-decoration: none;
     margin: 0;
     background: black;
+    border: black 3px solid;
 }
 
 .dynamo-link a{
@@ -60,10 +61,9 @@ ul{
     height: 100%;
     width: 100%;
     margin-left: 15%;
-    border-radius: 40px;
+    border-radius: 10px;
 }
-.dynamo-link a:hover{
-    border: black 3px solid;
+.dynamo-link:hover{
     box-shadow: inset -5px 10px 10px -5px #fdc300;
 }
 .flex-item{
