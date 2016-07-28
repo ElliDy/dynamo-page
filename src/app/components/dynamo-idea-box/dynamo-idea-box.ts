@@ -19,7 +19,11 @@ export class DynamoIdeaBox implements OnInit{
   	}
 
  	onSubmitIdea(){
- 		this._dynamoIdeaService.saveIdea(this.newIdea);
+ 		this._dynamoIdeaService.saveIdea(this.newIdea)
+                   .subscribe(
+                     data  => console.log("Saved: ", data.author, data.text),
+                     error =>  console.log(error),
+                     () => console.log("Finished."));
  	}
 
  	ngOnInit(){

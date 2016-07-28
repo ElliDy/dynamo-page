@@ -3,6 +3,11 @@ var http = require('http');
 var express = require('express');
 
 var app = express();
+var bodyParser = require("body-parser");
+
+//Here we are configuring express to use body-parser as middle-ware.
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(require('morgan')('short'));
 
@@ -33,8 +38,11 @@ app.use(require('morgan')('short'));
 app.get("/", function(req, res) {
   res.sendFile(__dirname + '/src/index.html');
 });
+
 app.post("/idea", function(req, res) {
-	console.log("test");
+  console.log(req.body);
+  //TODO: save body, which is the idea, on a file
+  res.json({data: req.body});
 });
 
 if (require.main === module) {
