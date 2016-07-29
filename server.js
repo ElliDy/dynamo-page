@@ -4,6 +4,7 @@ var express = require('express');
 
 var app = express();
 var bodyParser = require("body-parser");
+var jsonfile = require('jsonfile')
 
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -40,9 +41,23 @@ app.get("/", function(req, res) {
 });
 
 app.post("/idea", function(req, res) {
-  console.log(req.body);
-  //TODO: save body, which is the idea, on a file
-  res.json({data: req.body});
+  var file = './ideas.json'
+  jsonfile.readFile(file, function(err, obj) {
+      if(err!==null){
+        res.status(500).send({ error: 'Something failed on reading file!' });
+      }
+      else{
+        obj.ideas.push(req.body);
+        jsonfile.writeFile(file, obj, function (err) {
+          if(err!==null){
+            res.status(500).send({ error: 'Something failed on writing to file!' });
+          }
+          else{
+            res.json({data: req.body});
+          }
+        })
+      }
+  })
 });
 
 if (require.main === module) {
