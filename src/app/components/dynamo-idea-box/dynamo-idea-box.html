@@ -1,12 +1,15 @@
 <h3>Ihr seid dran, her mit den coolen Ideen...</h3>
-<form #myForm="ngForm" (ngSubmit)="onSubmitIdea()">
+<form *ngIf="!messageSent" #myForm="ngForm" (ngSubmit)="onSubmitIdea()">
 	<label>Ich bin der/die:</label>
 	<input ngControl="author" [(ngModel)]="newIdea.author" placeholder="Wenn ihr mögt... euer Name" />
 
 	<label>Und hier kommt mein Beitrag:</label>
 	<textarea placeholder="Hier tobt euch aus... alles ist erlaubt... na ja... fast alles ;)"
-	ngControl="text" [(ngModel)]="newIdea.text" >
+	ngControl="text" [(ngModel)]="newIdea.text" required>
 	</textarea>
 
-	<button type="submit">Weg damit...rein in die Box!</button>
+	<button type="submit" [disabled]="!myForm.form.valid">Weg damit...rein in die Box!</button>
 </form>
+<p *ngIf="messageSent">
+	Danke für deine Idee. Sie wurde gespeichert.
+</p>

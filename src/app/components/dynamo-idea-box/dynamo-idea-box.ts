@@ -3,6 +3,7 @@ import {Http} from 'angular2/http';
 import {DynamoIdea} from './dynamo-idea';
 import {DynamoIdeaService} from './dynamo-idea.service';
 import {OnInit} from 'angular2/core';
+import {ControlGroup} from 'angular2/common';
 
 @Component({
   selector: 'dynamo-idea-box',
@@ -14,14 +15,17 @@ import {OnInit} from 'angular2/core';
 })
 export class DynamoIdeaBox implements OnInit{
 	newIdea: DynamoIdea;
+	myForm: ControlGroup;
+	messageSent: boolean;
 
   	constructor(private _dynamoIdeaService : DynamoIdeaService) {
+  		this.messageSent = false;
   	}
 
  	onSubmitIdea(){
  		this._dynamoIdeaService.saveIdea(this.newIdea)
                    .subscribe(
-                     data  => console.log("Saved: ", data.author, data.text),
+                     data  => this.messageSent=true,
                      error =>  console.log(error),
                      () => console.log("Finished."));
  	}
