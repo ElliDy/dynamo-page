@@ -60,9 +60,45 @@ app.post("/idea", function(req, res) {
   })
 });
 
+app.get("/tweets", function(req, res){
+  twitter.get("/search/tweets", {q:"sgd1953%2CSGD"}, function(error, tweets, response){
+    if(error!==null){
+      res.status(500).send({ error: 'Getting tweets failed!' });
+    }
+    else{
+      var tweetImages = [];
+      for (var i=0, tweetsLength=tweets.statuses.length; i<tweetsLength; i++){
+          var tweet = tweets.statuses[i];
+          if(tweet.entities.media!==undefined){
+            for(var j=0, tweetMediaLength=tweet.entities.media.length; j<tweetMediaLength; j++){
+              var tweetMedia = tweet.entities.media[j];
+              if(tweetMedia.type==='photo'){
+                tweetImages.push(tweetMedia.media_url);
+              }
+            }
+          }
+      }
+      res.json({data: tweetImages});
+    }
+  }); 
+})
+
 if (require.main === module) {
   var server = http.createServer(app);
   server.listen(process.env.PORT || 1616, function() {
     console.log("Listening on %j", server.address());
   });
+
+  //Step 4: Initialize Twitter API
+  var Twitter = require('twitter');
+
+  //Get this data from your twitter apps dashboard
+  var config = {
+      "consumer_key": "Zb5QMdkYk2v23gsYMaksj0QJ9",
+      "consumer_secret": "JpogwFC1AXoxAYPmVho0yZaXYchTyR8e2dp3TiJT9EcbG7kyeM",
+      "access_token_key": "141620722-ug05LFuFn5wUgUVlUe5WgYsNQWEZCRaFsAei2E6W",
+      "access_token_secret": "Q6ZBXoIwm41dsZ3IzaTgPz0TWRAO1aE8khFPjk1QpPoPv"
+  }
+
+  var twitter = new Twitter(config);
 }
