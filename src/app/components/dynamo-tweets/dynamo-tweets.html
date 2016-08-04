@@ -1,8 +1,20 @@
 <div class="tweets__content">
 	<h2>Bilder von Dynamo Tweets</h2>
+	<p>Hier findet ihr aktuelle Bilder der letzten zwei Tage von Twitter mit den Hashtags #SGD und #sgd1953.</p>
 	<div class="tweets__container">
 		<div class="tweet__image-container" *ngFor="#tweetImage of tweetImages">
-			<img class="tweet__image" src="{{tweetImage}}"/>
+			<img class="tweet__image" src="{{tweetImage}}" (click)="showTweetImageOverlay(tweetImage)"/>
+		</div>
+	</div>
+	<div *ngIf="showImageOverlay" class="tweet-overlay">
+		<div class="tweet-overlay__close" (click)="closeOverlayImage()">x</div>
+		<div class="tweet-overlay__controls">	
+			<span class="tweet-overlay__previous" (click)="previousOverlayImage()"><</span>
+			<span>{{currentTweetImageIndex+1}}/{{tweetImages.length}}</span>
+			<span class="tweet-overlay__next" (click)="nextOverlayImage()">></span>
+		</div>
+		<div class="tweet-overlay__inner">
+			<img class="tweet-overlay__image" src="{{currentTweetImage}}"/>
 		</div>
 	</div>
 </div>
