@@ -21,11 +21,22 @@
 	width: 200px;
 }
 
+.tweets__hashtag-input{
+	background: #fdc300;
+	padding: 5px;
+	border: 2px solid black;
+	color: black;
+	border-radius: 10px;
+	font-size: 1.1rem;
+	font-family: Calibri, Helvetica, Arial, sans-serif;
+}
+
+
 .tweet-overlay{
 	position: absolute;
-	width: 107%;
-    height: 110%;
-    top: -12%;
+    width: 107%;
+    height: 100%;
+    top: -74px;
     left: -35px;
 	background: white;
 	border-radius: 10px;
@@ -45,21 +56,29 @@
 
 .tweet-overlay__controls{
 	width: 100%;
-	height: 6%;
+	height: auto;
 	padding: 20px 0;
 	text-align: center;
 }
 
 .tweet-overlay__next,
-.tweet-overlay__previous{
+.tweet-overlay__previous, 
+.tweets__hashtag-button{
 	width: 20px;
 	height: 20px;
 	display: inline-block;
-	background: #fdc300;
+	background: black;
+	color: #fdc300;
 	padding: 10px;
 	border: 2px solid black;
 	border-radius: 10px;
 }
+
+.tweets__hashtag-button{
+	width: 145px;
+    height: 35px;
+}
+
 
 .tweet-overlay__close{
 	position: absolute;
@@ -67,8 +86,18 @@
 	top: -10px;
 	width: 20px;
 	height: 20px;
-	background: #fdc300;
+	background: black;
+	color: #fdc300;
 	padding: 10px;
 	border: 2px solid black;
 	border-radius: 10px;
+}
+
+.tweet-overlay__next:hover,
+.tweet-overlay__previous:hover, 
+.tweets__hashtag-button:hover,
+.tweet-overlay__close:hover{
+ 	background: #fdc300;
+    color: black;
+    cursor: pointer;
 }

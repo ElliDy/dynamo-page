@@ -1,6 +1,11 @@
 <div class="tweets__content">
 	<h2>Bilder von Dynamo Tweets</h2>
-	<p>Hier findet ihr aktuelle Bilder der letzten zwei Tage von Twitter mit den Hashtags #SGD und #sgd1953.</p>
+	<p>Hier findet ihr aktuelle Bilder der letzten 100 Tweets von Twitter mit dem Hashtag #sgd1953.</p>
+	<div>
+		Weitere Hashtags mit Komma getrennt bitte hier angeben:
+		<input #hashtags class="tweets__hashtag-input"/>
+		<button class="tweets__hashtag-button" (click)="getTweetsWithHashtags(hashtags.value)">Zeig mir die Bilder</button>
+	</div>
 	<div class="tweets__container">
 		<div class="tweet__image-container" *ngFor="#tweetImage of tweetImages">
 			<img class="tweet__image" src="{{tweetImage}}" (click)="showTweetImageOverlay(tweetImage)"/>

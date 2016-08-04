@@ -60,8 +60,22 @@ app.post("/idea", function(req, res) {
   })
 });
 
+app.post("/tweets", function(req, res){
+  console.log(req.body);
+  var hashtags = req.body.hashtags.split(',');
+  var query = "%23sgd1953" 
+  for(var i=0, length=hashtags.length; i<length; i++){
+    query = query + '%20OR%20%20%23' + hashtags[i];
+  }
+  getTweets(query, res)
+});
+
 app.get("/tweets", function(req, res){
-  twitter.get("/search/tweets", {q:"sgd1953%2CSGD"}, function(error, tweets, response){
+  getTweets("%23sgd1953", res)
+})
+
+function getTweets(query, res){
+  twitter.get("/search/tweets", {q: query, src: "typd", count: 100 }, function(error, tweets, response){
     if(error!==null){
       res.status(500).send({ error: 'Getting tweets failed!' });
     }
@@ -78,10 +92,10 @@ app.get("/tweets", function(req, res){
             }
           }
       }
-      res.json({data: tweetImages});
+      res.json({data: tweetImages, tweets: tweets});
     }
   }); 
-})
+}
 
 if (require.main === module) {
   var server = http.createServer(app);

@@ -74,7 +74,7 @@ button{
 }
 
 button:hover{
-	-webkit-box-shadow: inset 0px 0px 20px 10px #fdc300;
-	-moz-box-shadow: inset 0px 0px 20px 10px #fdc300;
-	box-shadow: inset 0px 0px 20px 10px #fdc300;
+ 	background: #fdc300;
+    color: black;
+    cursor: pointer;
 }

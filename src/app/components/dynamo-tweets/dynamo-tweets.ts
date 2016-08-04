@@ -27,6 +27,13 @@ export class DynamoTweets {
                    () => console.log("Finished."));
 	}
 
+  getTweetsWithHashtags(value){
+    this.dynamoTweetsService.getTweetsWithHashtags(value).subscribe(
+                   data  => this.tweetImages = data,
+                   error =>  console.log(error),
+                   () => console.log("Finished."));
+  }
+
   showTweetImageOverlay(image) {
     this.currentTweetImage = image;
     this.currentTweetImageIndex = this.tweetImages.indexOf(this.currentTweetImage);
