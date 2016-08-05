@@ -38,6 +38,7 @@ export class DynamoTweets {
   showTweetImageOverlay(tweet) {
     this.currentTweet = tweet;
     this.currentTweetImageIndex = this.tweets.indexOf(this.currentTweet);
+    console.log(this.currentTweetImageIndex);
     this.showImageOverlay = true;
   }
 
@@ -50,7 +51,7 @@ export class DynamoTweets {
     if(this.currentTweetImageIndex>this.tweets.length-1){
       this.currentTweetImageIndex = 0;
     }
-    this.currentTweet = this.tweets[this.currentTweetImageIndex].imageUrl;
+    this.currentTweet = this.tweets[this.currentTweetImageIndex];
   }
 
   previousOverlayImage(){
@@ -58,7 +59,7 @@ export class DynamoTweets {
     if(this.currentTweetImageIndex<0){
       this.currentTweetImageIndex = this.tweets.length-1;
     }
-    this.currentTweet = this.tweets[this.currentTweetImageIndex].imageUrl;
+    this.currentTweet = this.tweets[this.currentTweetImageIndex];
   }
 
 }

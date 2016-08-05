@@ -1,6 +1,5 @@
 .dynamo-content{
     width: 80%;
-    border: 25px solid black;
     border-top: none;
     margin: auto;
     padding: 20px 20px;
@@ -32,10 +31,12 @@ header h1{
     display: flex;
     flex-flow: row nowrap;
     position: absolute;
-    width: 90%;
+    width: 100%;
     min-width: 600px;
     flex-wrap: wrap;
-    left: 5%;
+    left: 0;
+    padding: 0px 10%;
+    background: black;
 }
 
 ul{
@@ -50,7 +51,8 @@ ul{
     text-decoration: none;
     margin: 0;
     background: black;
-    border: black 3px solid;
+    border: black 1px solid;
+    max-width: 345px;
 }
 
 .dynamo-link a{
@@ -60,12 +62,15 @@ ul{
     padding: 15px 10px;
     height: 100%;
     width: 100%;
-    margin-left: 15%;
     border-radius: 10px;
 }
-.dynamo-link:hover{
-    box-shadow: inset -5px 10px 10px -5px #fdc300;
+
+.dynamo-link a:hover{
+    background: #fdc300;
+    color: black;
+    border: 2px solid black;
 }
+
 .flex-item{
     flex-grow: 1;
 }
