@@ -74,25 +74,39 @@ app.get("/tweets", function(req, res){
   getTweets("%23sgd1953", res)
 })
 
+function contains(array, value){
+  var contains = false;
+  for(var i=0, arrayLength = array.length; i<arrayLength; i++){
+    if(value===array[i].imageUrl){
+      contains = true;
+      break;
+    }
+  }
+  return contains;
+}
+
 function getTweets(query, res){
   twitter.get("/search/tweets", {q: query, src: "typd", count: 100 }, function(error, tweets, response){
     if(error!==null){
       res.status(500).send({ error: 'Getting tweets failed!' });
     }
     else{
-      var tweetImages = [];
+      var tweetObjects = [];
       for (var i=0, tweetsLength=tweets.statuses.length; i<tweetsLength; i++){
           var tweet = tweets.statuses[i];
           if(tweet.entities.media!==undefined){
             for(var j=0, tweetMediaLength=tweet.entities.media.length; j<tweetMediaLength; j++){
               var tweetMedia = tweet.entities.media[j];
-              if(tweetMedia.type==='photo'){
-                tweetImages.push(tweetMedia.media_url);
+              if(tweetMedia.type==='photo' && !contains(tweetObjects, tweetMedia.media_url)){
+                tweetObjects.push({
+                  imageUrl: tweetMedia.media_url,
+                  text: tweet.text
+                });
               }
             }
           }
       }
-      res.json({data: tweetImages, tweets: tweets});
+      res.json({data: tweetObjects});
     }
   }); 
 }

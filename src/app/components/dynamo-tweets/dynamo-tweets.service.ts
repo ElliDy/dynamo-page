@@ -8,7 +8,6 @@ export class DynamoTweetsService{
 
 	private extractData(res: Response) {
 	  let body = res.json();
-	  console.log(body.tweets)
 	  return body.data || { };
 	}
 	getTweets() {

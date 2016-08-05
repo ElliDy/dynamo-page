@@ -12,31 +12,32 @@ import {DynamoTweetsService} from './dynamo-tweets.service'
 })
 export class DynamoTweets {
 
-	tweetImages: string[];
+	tweets;
   showImageOverlay: boolean;
-  currentTweetImage: string;
+  currentTweet: string;
   currentTweetImageIndex;
+  showTweetText: boolean;
 
 	constructor(private dynamoTweetsService:DynamoTweetsService) {
     this.showImageOverlay = false;
-    this.currentTweetImage = "";
+    this.showTweetText = false;
     this.currentTweetImageIndex = 0;
 		this.dynamoTweetsService.getTweets().subscribe(
-                   data  => this.tweetImages = data,
+                   data  => this.tweets = data,
                    error =>  console.log(error),
                    () => console.log("Finished."));
 	}
 
   getTweetsWithHashtags(value){
     this.dynamoTweetsService.getTweetsWithHashtags(value).subscribe(
-                   data  => this.tweetImages = data,
+                   data  => this.tweets = data,
                    error =>  console.log(error),
                    () => console.log("Finished."));
   }
 
-  showTweetImageOverlay(image) {
-    this.currentTweetImage = image;
-    this.currentTweetImageIndex = this.tweetImages.indexOf(this.currentTweetImage);
+  showTweetImageOverlay(tweet) {
+    this.currentTweet = tweet;
+    this.currentTweetImageIndex = this.tweets.indexOf(this.currentTweet);
     this.showImageOverlay = true;
   }
 
@@ -46,18 +47,18 @@ export class DynamoTweets {
 
   nextOverlayImage(){
     this.currentTweetImageIndex++;
-    if(this.currentTweetImageIndex>this.tweetImages.length-1){
+    if(this.currentTweetImageIndex>this.tweets.length-1){
       this.currentTweetImageIndex = 0;
     }
-    this.currentTweetImage = this.tweetImages[this.currentTweetImageIndex];
+    this.currentTweet = this.tweets[this.currentTweetImageIndex].imageUrl;
   }
 
   previousOverlayImage(){
     this.currentTweetImageIndex--;
     if(this.currentTweetImageIndex<0){
-      this.currentTweetImageIndex = this.tweetImages.length-1;
+      this.currentTweetImageIndex = this.tweets.length-1;
     }
-    this.currentTweetImage = this.tweetImages[this.currentTweetImageIndex];
+    this.currentTweet = this.tweets[this.currentTweetImageIndex].imageUrl;
   }
 
 }

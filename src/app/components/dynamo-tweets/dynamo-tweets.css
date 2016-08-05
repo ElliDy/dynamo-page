@@ -17,9 +17,20 @@
 	padding: 20px 10px;
 }
 
-.tweet__image{
-	width: 200px;
+.tweets__checkboxlabel{
+	line-height: 10px;
+    vertical-align: middle;
 }
+
+.tweets__checkbox{
+	vertical-align: sub;
+}
+
+.tweet__image, .tweet__text{
+	width: 200px;
+	margin: auto;
+}
+
 
 .tweets__hashtag-input{
 	background: #fdc300;

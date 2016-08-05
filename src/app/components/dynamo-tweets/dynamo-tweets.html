@@ -1,25 +1,29 @@
 <div class="tweets__content">
 	<h2>Bilder von Dynamo Tweets</h2>
 	<p>Hier findet ihr aktuelle Bilder der letzten 100 Tweets von Twitter mit dem Hashtag #sgd1953.</p>
-	<div>
+	<p>
+		<input class="tweets__checkbox" type="checkbox" [(ngModel)]="showTweetText"/><label class="tweets__checkboxlabel">Text der Tweets anzeigen</label>
+	</p>
+	<p>
 		Weitere Hashtags mit Komma getrennt bitte hier angeben:
 		<input #hashtags class="tweets__hashtag-input"/>
 		<button class="tweets__hashtag-button" (click)="getTweetsWithHashtags(hashtags.value)">Zeig mir die Bilder</button>
-	</div>
+	</p>
 	<div class="tweets__container">
-		<div class="tweet__image-container" *ngFor="#tweetImage of tweetImages">
-			<img class="tweet__image" src="{{tweetImage}}" (click)="showTweetImageOverlay(tweetImage)"/>
+		<div class="tweet__image-container" *ngFor="#tweet of tweets">
+			<img class="tweet__image" src="{{tweet.imageUrl}}" (click)="showTweetImageOverlay(tweet)"/>
+			<p *ngIf="showTweetText" class="tweet__text">{{tweet.text}}</p>
 		</div>
 	</div>
 	<div *ngIf="showImageOverlay" class="tweet-overlay">
 		<div class="tweet-overlay__close" (click)="closeOverlayImage()">x</div>
 		<div class="tweet-overlay__controls">	
 			<span class="tweet-overlay__previous" (click)="previousOverlayImage()"><</span>
-			<span>{{currentTweetImageIndex+1}}/{{tweetImages.length}}</span>
+			<span>{{currentTweetImageIndex+1}}/{{tweets.length}}</span>
 			<span class="tweet-overlay__next" (click)="nextOverlayImage()">></span>
 		</div>
 		<div class="tweet-overlay__inner">
-			<img class="tweet-overlay__image" src="{{currentTweetImage}}"/>
+			<img class="tweet-overlay__image" src="{{currentTweet.imageUrl}}"/>
 		</div>
 	</div>
 </div>
