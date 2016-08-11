@@ -26,6 +26,9 @@
         <div *ngIf="fullTextShown" 
             class="dynamo-main-container__fulltextcontainer">
             <p>
+                Der folgende Text wurde ein Tag nach dem letzten Spiel des Saison 2015/2016 verfasst.
+            </p>
+            <p>
                 Denn das hier ist der Anfang von keinem Fanclub, keiner klassischen Fanseite, sondern von einem etwas anderem... nicht minder tollem Projekt. Und für dieses Projekt brauch ich euch und zwar alle. Aber der Reihe nach...
             </p>
             <p>
@@ -82,7 +85,7 @@
             <div class="dynamic-usecase__item dynamic-usecase__2">Stimmung gleich null - woran lag es?</div>
         </div>
         <div class="dynamic-usecase__link-container">
-            <a href="/dynamo-idea-box">Ihr habt auch Anwendungsfälle, die ihr euch wünscht, dann immmer her damit - Hier geht es zum dynamischen Formular!</a>
+            <a [routerLink]="['/DynamoIdeaBox']">Ihr habt auch Anwendungsfälle, die ihr euch wünscht, dann immmer her damit - Hier geht es zum dynamischen Formular!</a>
         </div>
     </section>
     <div class="fangesang-container">
