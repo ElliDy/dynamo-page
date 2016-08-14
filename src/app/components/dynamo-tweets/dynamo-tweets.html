@@ -15,15 +15,17 @@
 			<p *ngIf="showTweetText" class="tweet__text">{{tweet.text}}</p>
 		</div>
 	</div>
-	<div *ngIf="showImageOverlay" class="tweet-overlay">
-		<div class="tweet-overlay__close" (click)="closeOverlayImage()">x</div>
-		<div class="tweet-overlay__controls">	
-			<span class="tweet-overlay__previous" (click)="previousOverlayImage()"><</span>
-			<span>{{currentTweetImageIndex+1}}/{{tweets.length}}</span>
-			<span class="tweet-overlay__next" (click)="nextOverlayImage()">></span>
-		</div>
-		<div class="tweet-overlay__inner">
-			<img class="tweet-overlay__image" src="{{currentTweet.imageUrl}}"/>
+	<div #tweetoverlay class="tweet-overlay__container">
+		<div *ngIf="showImageOverlay" class="tweet-overlay" >
+			<div class="tweet-overlay__close" (click)="closeOverlayImage()">x</div>
+			<div class="tweet-overlay__controls">	
+				<span class="tweet-overlay__previous" (click)="previousOverlayImage()"><</span>
+				<span>{{currentTweetImageIndex+1}}/{{tweets.length}}</span>
+				<span class="tweet-overlay__next" (click)="nextOverlayImage()">></span>
+			</div>
+			<div class="tweet-overlay__inner">
+				<img class="tweet-overlay__image" src="{{currentTweet.imageUrl}}"/>
+			</div>
 		</div>
 	</div>
 </div>

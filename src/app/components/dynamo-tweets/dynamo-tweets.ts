@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component, ElementRef, Inject, ViewChild} from 'angular2/core';
 import {Http} from 'angular2/http';
 import {DynamoTweetsService} from './dynamo-tweets.service'
 
@@ -18,14 +18,18 @@ export class DynamoTweets {
   currentTweetImageIndex;
   showTweetText: boolean;
 
-	constructor(private dynamoTweetsService:DynamoTweetsService) {
+  @ViewChild('tweetoverlay') tweetoverlay: ElementRef;
+
+	constructor(private dynamoTweetsService:DynamoTweetsService,  @Inject(ElementRef) elementRef: ElementRef,) {
     this.showImageOverlay = false;
     this.showTweetText = false;
     this.currentTweetImageIndex = 0;
 		this.dynamoTweetsService.getTweets().subscribe(
                    data  => this.tweets = data,
                    error =>  console.log(error),
-                   () => console.log("Finished."));
+                   () => console.log("Finished."));   
+    console.log();
+   
 	}
 
   getTweetsWithHashtags(value){
@@ -38,12 +42,19 @@ export class DynamoTweets {
   showTweetImageOverlay(tweet) {
     this.currentTweet = tweet;
     this.currentTweetImageIndex = this.tweets.indexOf(this.currentTweet);
-    console.log(this.currentTweetImageIndex);
     this.showImageOverlay = true;
+    var tweetoverlay = this.tweetoverlay;
+    tweetoverlay.nativeElement.style = 'height:'+(window.innerHeight - 100)+'px';
+    
+    window.onresize = function() {
+       tweetoverlay.nativeElement.style = 'height:'+(window.innerHeight - 100)+'px';
+    }
   }
 
   closeOverlayImage(){
     this.showImageOverlay = false;
+    this.tweetoverlay.nativeElement.style = '';
+    window.onresize = null;
   }
 
   nextOverlayImage(){
