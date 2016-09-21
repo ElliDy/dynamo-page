@@ -2,12 +2,15 @@
 	<header>
     	<h1>DyPicMa - Die App von Fans für Fans</h1>
 	</header>
-    <div class="flex-container">
-        <li class="dynamo-link flex-item"><a [routerLink]="['/Home']">Start</a></li>
-        <li class="dynamo-link flex-item"><a [routerLink]="['/DynamoIdeaBox']">App Ideenkiste</a></li>
-        <li class="dynamo-link flex-item"><a [routerLink]="['/DynamoTweets']">Bilder</a></li>
-        <li class="dynamo-link flex-item"><a [routerLink]="['/DynamoLinks']">Links</a></li>
-        <li class="dynamo-link flex-item"><a [routerLink]="['/About']">About</a></li>
+    <div class="nav">
+        <ul class="nav-list" #navlist>
+            <li class="nav-item"><a [routerLink]="['/Home']">Start</a></li>
+            <li class="nav-item"><a [routerLink]="['/DynamoIdeaBox']">App Ideenkiste</a></li>
+            <li class="nav-item"><a [routerLink]="['/DynamoTweets']">Bilder</a></li>
+            <li class="nav-item"><a [routerLink]="['/DynamoLinks']">Links</a></li>
+            <li class="nav-item"><a [routerLink]="['/About']">About</a></li>
+        </ul>
+        <div class="nav-mobile" (click)="toggleMobileNav()" ></div>
     </div>
     <div class="dynamo-page-content">
         <router-outlet></router-outlet>

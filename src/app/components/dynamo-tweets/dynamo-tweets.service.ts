@@ -7,6 +7,7 @@ export class DynamoTweetsService{
 	constructor (private http: Http) {}
 
 	private extractData(res: Response) {
+		console.log(res);
 	  let body = res.json();
 	  return body.data || { };
 	}

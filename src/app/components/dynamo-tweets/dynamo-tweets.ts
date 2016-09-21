@@ -20,7 +20,7 @@ export class DynamoTweets {
 
   @ViewChild('tweetoverlay') tweetoverlay: ElementRef;
 
-	constructor(private dynamoTweetsService:DynamoTweetsService,  @Inject(ElementRef) elementRef: ElementRef,) {
+	constructor(private dynamoTweetsService:DynamoTweetsService,  @Inject(ElementRef) elementRef: ElementRef) {
     this.showImageOverlay = false;
     this.showTweetText = false;
     this.currentTweetImageIndex = 0;

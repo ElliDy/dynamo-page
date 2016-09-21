@@ -3,9 +3,9 @@
     border-top: none;
     margin: auto;
     padding: 20px 20px;
-    border-radius-bottomleft: 30px;
-    border-radius-bottomright: 30px;
     min-width: 600px;
+    background: white;
+    box-shadow: inset 0px -15px 30px #fdc300;
 }
 header{
     margin: 10px auto 20px auto;
@@ -18,43 +18,13 @@ header h1{
 }
 
 .dynamo-page-content{
-    margin-top: 80px;
     background: white;
     height: 100%;
     position: relative;
-    border-radius: 20px;
-    box-shadow: 0px 0px 30px 10px white;
     padding: 10px 0px;
+    margin-top: 15px;
 }
  
-.flex-container {
-    display: flex;
-    flex-flow: row nowrap;
-    position: absolute;
-    width: 100%;
-    min-width: 600px;
-    flex-wrap: wrap;
-    left: 0;
-    padding: 0px 10%;
-    background: black;
-}
-
-ul{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.dynamo-link{
-    padding: 0;
-    list-style-type: none;
-    text-decoration: none;
-    margin: 0;
-    background: black;
-    border: black 1px solid;
-    max-width: 345px;
-}
-
 .dynamo-link a{
     background: black;
     color: #fdc300;
@@ -71,6 +41,84 @@ ul{
     border: 2px solid black;
 }
 
-.flex-item{
-    flex-grow: 1;
+
+.nav {
+    position:relative;
+    display:inline-block;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+}
+.nav-list{
+    list-style: none;
+    padding: 0;
+    width: 438px;
+    margin: auto;
+}
+.nav-item {
+    float:left;
+    *display:inline;
+    zoom:1;
+}
+.nav-item a {
+    display:block;
+    padding:15px 20px;
+    color:black;
+    background:#fdc300;
+}
+.nav-item:first-child a {
+    border-radius:5px 0 0 5px;
+}
+.nav-item:last-child a {
+    border-radius:0 5px 5px 0;
+}
+.nav-item a:hover {
+    background:#f9bd00;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+    .nav {
+        width:100%;
+    }
+    .nav-item {
+        width:100%;
+        float:none;
+    }
+}
+
+.nav-mobile {
+    display:none; /* Hide from browsers that don't support media queries */
+    cursor:pointer;
+    position:absolute;
+    top:0;
+    right:0;
+    background: #fdc300 url(./dist/images/menu-icon.png) no-repeat center center;
+    height:40px;
+    width:40px;
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+    .nav-mobile {
+        display:block;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+    .nav-list {
+        display:none;
+        width: 100%;
+    }
+    .nav-item:first-child a {
+        border-radius: 5px 5px 0 0;
+    }
+    .nav-item:last-child a {
+        border-radius: 0 0 5px 5px;
+    }
+    .nav-list-active{
+        display: block;
+        margin-top: 0;
+    }
 }

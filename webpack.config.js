@@ -22,6 +22,7 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.ts$/, loader: 'ts-loader' },
+      { test: /\.png$/, loader: 'file' }
     ],
     noParse: [ path.join(__dirname, 'node_modules', 'angular2', 'bundles') ]
   },
