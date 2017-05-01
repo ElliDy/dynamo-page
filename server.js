@@ -5,6 +5,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
 var jsonfile = require('jsonfile')
+var cors = require('cors');
 
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -31,6 +32,8 @@ app.use(require('morgan')('short'));
   app.use(require("webpack-hot-middleware")(compiler, {
     log: console.log, path: '/__webpack_hmr', heartbeat: 10 * 1000
   }));
+
+  app.use(cors({origin: 'http://localhost:8080'}));
 })();
 
  app.use(express.static(__dirname + '/src')); 

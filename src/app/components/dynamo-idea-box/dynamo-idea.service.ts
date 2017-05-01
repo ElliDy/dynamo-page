@@ -2,6 +2,7 @@ import {Injectable} from 'angular2/core';
 import {DynamoIdea} from './dynamo-idea';
 import { Http, Headers, RequestOptions, Response } from 'angular2/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/Rx';
 
 @Injectable()
 export class DynamoIdeaService{
@@ -24,10 +25,11 @@ export class DynamoIdeaService{
 	}
 
 	saveIdea(idea: DynamoIdea){
+		console.log(idea);
 		let body = JSON.stringify(idea);
-    	let headers = new Headers({ 'Content-Type': 'application/json' });
-    	let options = new RequestOptions({ headers: headers });
-		return this.http.post('/idea', body, options)
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+		return this.http.post('http://localhost:1616/idea', body, options)
 					.map(this.extractData);
 	}
 	
