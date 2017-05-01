@@ -92,12 +92,14 @@ header h1{
     position:absolute;
     top:0;
     right:0;
-    background: #fdc300 url(./dist/images/menu-icon.png) no-repeat center center;
+    background: #fdc300 url(../assets/menu-icon.jpg) no-repeat center center;
     height:40px;
     width:40px;
-    border-radius:5px;
-    -webkit-border-radius:5px;
-    -moz-border-radius:5px;
+    border-radius:20px;
+    -webkit-border-radius:20px;
+    -moz-border-radius:20px;    
+    background-size: 110% 110%;
+    background-position: -3px -3px;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 768px) {
