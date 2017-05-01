@@ -12,7 +12,7 @@ export class DynamoTweetsService{
 	  return body.data || { };
 	}
 	getTweets() {
-		return this.http.get('/tweets')
+		return this.http.get('http://localhost:1616/tweets')
 			.map(this.extractData);	
 	}
 
@@ -20,7 +20,7 @@ export class DynamoTweetsService{
 		let body = JSON.stringify({hashtags:value});
 		let headers = new Headers({ 'Content-Type': 'application/json' });
     	let options = new RequestOptions({ headers: headers });
-		return this.http.post('/tweets', body, options)
+		return this.http.post('http://localhost:1616/tweets', body, options)
 			.map(this.extractData);	
 	}
 	

@@ -74,6 +74,7 @@ app.post("/tweets", function(req, res){
 });
 
 app.get("/tweets", function(req, res){
+  console.log("get tweets")
   getTweets("%23sgd1953", res)
 })
 
