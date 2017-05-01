@@ -6,6 +6,7 @@ import {About} from './components/about/about';
 import {DynamoLinks} from './components/dynamo-links/dynamo-links';
 import {DynamoIdeaBox} from './components/dynamo-idea-box/dynamo-idea-box';
 import {DynamoTweets} from './components/dynamo-tweets/dynamo-tweets';
+import {DynamoPictures} from './components/dynamo-pictures/dynamo-pictures';
 
 @Component({
   selector: 'dynamo-page',
@@ -20,7 +21,8 @@ import {DynamoTweets} from './components/dynamo-tweets/dynamo-tweets';
   new Route({ path: '/about', component: About, name: 'About'}),
   new Route({ path: '/dynamo-links', component: DynamoLinks, name: 'DynamoLinks'}),
   new Route({ path: '/dynamo-idea-box', component: DynamoIdeaBox, name: 'DynamoIdeaBox'}),
-  new Route({ path: '/dynamo-tweets', component: DynamoTweets, name: 'DynamoTweets'})
+  new Route({ path: '/dynamo-tweets', component: DynamoTweets, name: 'DynamoTweets'}),
+  new Route({ path: '/dynamo-pictures', component: DynamoPictures, name: 'DynamoPictures'})
 ])
 export class DynamoPage {
 

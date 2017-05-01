@@ -1,0 +1,10 @@
+.dynamo-main-container{
+    padding: 20px;
+    border-radius: 20px;
+    background: white;
+}
+
+.dynamo-picture{
+	height: 400px;
+	margin: 30px 30px 0 0;
+}
