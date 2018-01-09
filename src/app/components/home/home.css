@@ -40,7 +40,6 @@
 
 .dynamic-usecase__link-container a{
 	display: inline-block;
-	width: 450px;
 }
 
 .dynamo-main-container__togglecontainer button:hover, .dynamic-usecase__link-container a:hover{
