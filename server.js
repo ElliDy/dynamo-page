@@ -63,6 +63,39 @@ app.post("/idea", function(req, res) {
   })
 });
 
+app.post("/ideas", function(req, res) {
+  var file = './myideas.json'
+  var ideaId = req.body.like; 
+  jsonfile.readFile(file, function(err, obj) {
+      if(err!==null){
+        res.status(500).send({ error: 'Something failed on reading file!' });
+      }
+      else{
+        obj.ideas.map(function(idea){
+          if(idea.id==ideaId){
+            idea.likes++;
+          }
+        })
+        console.log(obj.ideas)
+        jsonfile.writeFile(file, obj, function (err) {
+          if(err!==null){
+            res.status(500).send({ error: 'Something failed on writing to file!' });
+          }
+          else{
+            res.json({data: req.body});
+          }
+        })
+      }
+  })
+});
+
+app.get("/ideas", function(req, res) {
+  var file = './myideas.json'
+  jsonfile.readFile(file, function(err, obj) {
+      res.json({data: obj.ideas});
+  })
+});
+
 app.post("/tweets", function(req, res){
   console.log(req.body);
   var hashtags = req.body.hashtags.split(',');

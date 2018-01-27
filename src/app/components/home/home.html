@@ -73,16 +73,7 @@
         </p>
         
         <div class="dynamic-usecase__container dynamic-usecase__as" >
-            <div class="dynamic-usecase__item dynamic-usecase__2">Ich möchte meine Fotos nach einem Spiel teilen.</div>
-            <div class="dynamic-usecase__item dynamic-usecase__3">Ich möchte ein einfaches Video oder eine Slide Show erstellen vom letzten Spiel und es mit meinem Fanclub teilen</div>
-            <div class="dynamic-usecase__item dynamic-usecase__3">Das Foto ist geil... wer im Block mag das auch? Ich will ein Block-Rating :) </div>
-            <div class="dynamic-usecase__item dynamic-usecase__3">Vergleiche alle Videos der letzten drei Monate - bei welchen Spiel waren wir am lautesten?</div>            
-            <div class="dynamic-usecase__item dynamic-usecase__3">Ich möchte in Erinnerungen schwelgen... gib mir alle Fotos mit Flaggen drauf von den letzten drei Monaten</div>
-            <div class="dynamic-usecase__item dynamic-usecase__2">Was war meine schönste Choreo diese Saison?</div>
-            <div class="dynamic-usecase__item dynamic-usecase__2">Was war eure schönste Choreo diese Saison?</div>
-            <div class="dynamic-usecase__item dynamic-usecase__2">Welches Auswärtspiel war am besten bewacht? ;)</div>
-            <div class="dynamic-usecase__item dynamic-usecase__2">Bei welchem Spiel gab´s denn am meisten Feuer im Kessel? </div>
-            <div class="dynamic-usecase__item dynamic-usecase__2">Stimmung gleich null - woran lag es?</div>
+            <div *ngFor="#idea of ideas" class="dynamic-usecase__item dynamic-usecase__2">{{idea.text}} <span class="dynamic-usecase__like" (click)="likeIdea(idea.id)"><i class="fas fa-heart"></i></span></div>
         </div>
         <div class="dynamic-usecase__link-container">
             <a [routerLink]="['/DynamoIdeaBox']">Ihr habt auch Anwendungsfälle, die ihr euch wünscht, dann immmer her damit - Hier geht es zum dynamischen Formular!</a>

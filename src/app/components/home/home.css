@@ -86,6 +86,10 @@
 	flex-grow: 1;
 }
 
+.dynamic-usecase__like{
+	cursor: pointer;
+}
+
 .dynamic-usecase__3{
 	flex-grow: 3;
 }
